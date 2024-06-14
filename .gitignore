@@ -14,8 +14,8 @@
 !.gitconfig
 # The gitignore of this repository itself (!)
 !.gitignore
-# My global Git excludes file (acts as a global .gitignore)
-!.gitexcludes
+# Monorepo
+!.gitmodules
 
 
 # This won't actually pull in the other contetns of the dir, though.
