@@ -1,0 +1,46 @@
+*
+
+!.bash*
+.*.swp
+.bash_history
+.bash_local
+.bash_logout
+!.profile
+
+# Zsh
+!.zshrc
+
+# Git aliases, identification info
+!.gitconfig
+# The gitignore of this repository itself (!)
+!.gitignore
+# My global Git excludes file (acts as a global .gitignore)
+!.gitexcludes
+
+
+# This won't actually pull in the other contetns of the dir, though.
+!.ipython
+# ...default profile's...
+!.ipython/profile_default
+# ...main config file
+!.ipython/profile_default/ipython_config.py
+
+# Virtualenvwrapper hooks
+!.virtualenvs
+!.virtualenvs/postmkvirtualenv
+
+!.config
+!.config/btop
+!.config/btop/*
+!.config/btop/themes
+!.config/btop/themes/*
+!.config/fastfetch
+!.config/fastfetch/*
+!.config/hypr
+!.config/hypr/*
+!.config/kitty
+!.config/kitty/*
+!.config/nvim
+!.config/nvim/*
+!.config/Thunar
+!.config/Thunar/*
