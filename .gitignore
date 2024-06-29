@@ -44,3 +44,5 @@
 !.config/nvim/*
 !.config/Thunar
 !.config/Thunar/*
+!.config/wlogout
+!.config/wlogout/*

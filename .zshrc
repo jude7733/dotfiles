@@ -10,26 +10,6 @@ export CDPATH=".:$HOME:$HOME/.config/"
 export ZSH="$HOME/.oh-my-zsh"
 precmd() {print ""}
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
 ZSH_THEME="random"
 
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -89,7 +69,7 @@ zstyle ':omz:update' frequency 13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode zsh-autopair autoupdate sudo command-not-found git-auto-fetch web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,10 +110,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
