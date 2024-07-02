@@ -4,7 +4,7 @@
 export BROWSER="firefox"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export CDPATH=".:$HOME:$HOME/.config/"
+export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
