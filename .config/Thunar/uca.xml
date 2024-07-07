@@ -6,10 +6,47 @@
 	<submenu></submenu>
 	<unique-id>1717856151436227-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
-	<description>Example for a custom action</description>
+	<description>Open in terminal</description>
 	<range></range>
 	<patterns>*</patterns>
 	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>com.github.zren.kdeconnectdevice</icon>
+	<name>send via kde-connect</name>
+	<submenu></submenu>
+	<unique-id>1720333287349637-2</unique-id>
+	<command>kdeconnect-cli --list-devices --name-only | grep -v &quot;This device&quot; | awk -F&apos;,&apos; &apos;{print $1}&apos; | wofi -dmenu -p &quot;Select device to send to:&quot; | xargs -I{} kdeconnect-cli -n {} --share %f</command>
+	<description>share files to other devices</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Open with Neovim</name>
+	<submenu></submenu>
+	<unique-id>1720334332075185-3</unique-id>
+	<command>kitty nvim %f</command>
+	<description>launch file with nvim</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Open Neovim here</name>
+	<submenu></submenu>
+	<unique-id>1720335412814622-4</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator nvim</command>
+	<description>Open directory with nvim</description>
+	<range>*</range>
+	<patterns>*</patterns>
 	<directories/>
 </action>
 </actions>
