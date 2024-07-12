@@ -110,7 +110,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
-alias clean="sudo pacman -Rsn $(pacman -Qdtq)"
+alias clean='sudo pacman -Rns $(pacman -Qdtq)'
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

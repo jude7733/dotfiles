@@ -49,4 +49,15 @@
 	<patterns>*</patterns>
 	<directories/>
 </action>
+<action>
+	<icon>xarchiver</icon>
+	<name>xarchiver extract</name>
+	<submenu></submenu>
+	<unique-id>1720762211078660-1</unique-id>
+	<command>xarchiver -d %f</command>
+	<description>Extract files by creating a directory here</description>
+	<range>*</range>
+	<patterns>*.gz;*.zip;*.tar;*.rar;*.7z</patterns>
+	<other-files/>
+</action>
 </actions>
