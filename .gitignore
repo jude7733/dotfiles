@@ -51,6 +51,7 @@
 !.config/wofi/*
 !.config/waybar
 !.config/waybar/*
+!.config/waybar/scripts/*
 !.config/zathura
 !.config/safeeyes
 !.config/safeeyes/*
