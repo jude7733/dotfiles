@@ -10,11 +10,14 @@ cd yay
 makepkg -si
 cd ~
 rm -rf yay
-yay -S wlogout
+
 yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh cmake alacritty wireplumbler lxappearance ngw-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler
+sudo pacman -S zsh cmake wireplumber xarchiver lxappearance nwg-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler
 yay -S materia-gtk-theme
 yay -S safeeyes
+
+# kde-connect
+sudo pacman -S kdeconnect
 
 # notification daemon 
 sudo pacman -S swaync
@@ -26,11 +29,12 @@ sudo pacman -S cliphist
 sudo pacman -S polkit-kde-agent
 
 # hyprland plugins and packages
-sudo pacman -S cpio meson hyprpaper waybar hypridle hyprlock xdg-portal-desktop-hyprland
-yay -S hyprshot 
+sudo pacman -S cpio meson hyprpaper waybar hypridle xdg-portal-desktop-hyprland
+yay -S hyprshot hyprlock wlogout 
 
 # nvim
-sudo pacman -S neovim ripgrep lazygit btop
+sudo pacman -S neovim ripgrep lazygit btop npm nodejs
+
 # enable packages
 # sudo pacman -S hyprwayland-scanner
 hyprpm update

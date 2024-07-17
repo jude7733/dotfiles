@@ -52,7 +52,6 @@
 !.config/waybar
 !.config/waybar/*
 !.config/waybar/scripts/*
-!.config/zathura
 !.config/safeeyes
 !.config/safeeyes/*
 !.config/safeeyes/style/*
@@ -60,3 +59,5 @@
 !.config/xsettingsd/*
 !.config/Thunar
 !.config/Thunar/*
+!.config/zathura
+!.config/zathura/*
