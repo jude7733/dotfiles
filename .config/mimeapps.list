@@ -1,0 +1,10 @@
+[Added Associations]
+inode/directory=xarchiver.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/yaml=vim.desktop;
+text/plain=vim.desktop;nvim.desktop;libreoffice-writer.desktop;
+application/json=nvim.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+text/plain=nvim.desktop

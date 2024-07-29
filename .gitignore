@@ -1,6 +1,5 @@
 *
 
-!.bash*
 .*.swp
 .bash_history
 .bash_local
@@ -65,3 +64,8 @@
 !.config/xfce4/*
 !.config/xfce4/xfconf/xfce-perchannel-xml
 !.config/xfce4/xfconf/xfce-perchannel-xml/*
+!.config/gtk-3.0
+!.config/gtk-3.0/*
+!.config/xarchiver
+!.config/xarchiver/*
+!.config/mimeapps.list

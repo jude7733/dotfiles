@@ -82,6 +82,9 @@ tooltip label {
   margin: 5px;
   padding: 2px 10px;
 }
+window#waybar.empty #window {
+  background: none;
+}
 
 #custom-packages {
   color: #15161e;

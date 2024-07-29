@@ -32,7 +32,7 @@
 	<name>Open with Neovim</name>
 	<submenu></submenu>
 	<unique-id>1720334332075185-3</unique-id>
-	<command>kitty nvim %f</command>
+	<command>kitty -e nvim %f</command>
 	<description>launch file with nvim</description>
 	<range>*</range>
 	<patterns>*</patterns>
