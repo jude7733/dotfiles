@@ -17,7 +17,7 @@
         "pulseaudio",
         "clock",
 	    	"tray",
-        "custom/notification",
+        "notification",
         "custom/power"
 	],
   "custom/menu": {
@@ -27,7 +27,7 @@
   },
   "hyprland/workspaces": {
        "on-scroll-up": "hyprctl dispatch workspace r-1",
-       "on-scroll-down": "hyprctl dispatch workspace r+1",        
+       "on-scroll-down": "hyprctl dispatch workspace r+1",
        "on-click": "activate",
        "active-only": false,
        "all-outputs": true,
@@ -39,12 +39,12 @@
        },
        "persistent-workspaces": {
           "*": 3
-       }       
+       }
   },
 	"clock": {
     "tooltip-format": "<big>   {:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d} ",
-		"format": "  {:%H:%M}",
+		"format": "   {:%H:%M}",
 	},
 	"hyprland/window": {
 		"max-length": 60,
@@ -52,7 +52,7 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": "  {}%"
+		"format": "   {}%"
 	},
 	"cpu": {
 		"interval": 2,
@@ -77,7 +77,7 @@
 		"spacing": 12
 	},
     "pulseaudio": {
-        "format": "{icon}  {volume}% {format_source}",
+        "format": "{icon}   {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -104,17 +104,17 @@
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
     },
-    "custom/notification": {
+    "notification": {
         "tooltip": false,
         "format": "{icon} {}",
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
+            "notification": " <span foreground='red'><sup></sup></span>",
             "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-notification": " <span foreground='red'><sup></sup></span>",
             "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-notification": " <span foreground='red'><sup></sup></span>",
             "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
             "dnd-inhibited-none": ""
         },
         "return-type": "json",
@@ -125,7 +125,7 @@
         "escape": true
     },
     "custom/power": {
-        "format": "⏻",
+        "format": "⏻ ",
         "tooltip": false,
         "on-click": "wlogout --protocol layer-shell"
     },

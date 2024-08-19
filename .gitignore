@@ -46,11 +46,15 @@
 !.config/nvim/*
 !.config/wlogout
 !.config/wlogout/*
+!.config/wlogout/icons/*
 !.config/wofi
 !.config/wofi/*
 !.config/waybar
 !.config/waybar/*
 !.config/waybar/scripts/*
+!.config/wal
+!.config/wal/*
+!.config/wal/templates/*
 !.config/safeeyes
 !.config/safeeyes/*
 !.config/safeeyes/style/*

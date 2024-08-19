@@ -32,7 +32,7 @@ sudo pacman -S polkit-kde-agent
 
 # hyprland plugins and packages
 sudo pacman -S cpio meson hyprpaper waybar hypridle xdg-portal-desktop-hyprland
-yay -S hyprshot hyprlock wlogout 
+yay -S hyprshot hyprlock wlogout pywal-16-colors 
 
 # nvim
 sudo pacman -S neovim ripgrep lazygit btop npm nodejs

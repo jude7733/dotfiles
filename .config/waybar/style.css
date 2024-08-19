@@ -1,5 +1,7 @@
+@import "../../.cache/wal/colors-waybar.css";
+
 /* -----------------------------------------------------
- * General 
+ * General
  * ----------------------------------------------------- */
 * {
   font-size: 15px;
@@ -9,54 +11,42 @@
     Font Awesome,
     sans-serif;
   font-weight: bold;
+  color: @foreground;
 }
 
 window#waybar {
-  background-color: rgba(26, 27, 38, 0.4);
-  border-bottom: 1px solid rgba(26, 27, 38, 0.6);
-  border-radius: 0px;
-  color: #f8f8f2;
   padding: 0 5px;
+  background: transparent;
 }
 
 /* -----------------------------------------------------
- * Workspaces 
+ * Workspaces
  * ----------------------------------------------------- */
 #workspaces {
-  background: rgba(192, 202, 245, 0.2);
-  margin: 5px 3px 5px 12px;
-  padding: 0px 1px;
+  margin: 0 3px;
+  padding: 1px 3px;
   border-radius: 15px;
-  border: 0px;
   font-style: normal;
-  color: #15161e;
 }
 
 #workspaces button {
-  padding: 0px 5px;
+  padding: 2px 5px;
   margin: 4px 3px;
   border-radius: 15px;
-  border: 0px;
-  color: #15161e;
-  background: rgba(192, 202, 245, 0.6);
-  opacity: 0.5;
+  background-color: @color2;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-  color: #15161e;
-  background: rgba(192, 202, 245, 0.9);
+  background-color: @color1;
   border-radius: 15px;
   min-width: 40px;
   transition: all 0.3s ease-in-out;
-  opacity: 0.8;
 }
 
 #workspaces button:hover {
-  color: #15161e;
-  background: #7aa2f7;
+  background-color: @color4;
   border-radius: 15px;
-  opacity: 1;
 }
 
 /* -----------------------------------------------------
@@ -76,122 +66,118 @@ tooltip label {
  * Window
  * ----------------------------------------------------- */
 #window {
-  color: #eeeeee;
-  background: rgba(192, 202, 245, 0.4);
+  background-color: @color8;
   border-radius: 15px;
-  margin: 5px;
+  margin: 4px;
   padding: 2px 10px;
 }
+
 window#waybar.empty #window {
   background: none;
 }
 
+/* -----------------------------------------------------
+ * information
+ * ----------------------------------------------------- */
 #custom-packages {
-  color: #15161e;
-  background: #f7768e;
+  background-color: @background;
   border-radius: 15px;
-  margin: 5px;
   padding: 2px 10px;
-}
-
-#custom-power {
-  color: #15161e;
-  background: #f7768e;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#memory {
-  color: #15161e;
-  background: #e0af68;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#clock {
-  color: #15161e;
-  background: #bb9af7;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#cpu {
-  color: #15161e;
-  background: #7dcfff;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#disk {
-  color: #15161e;
-  background: #9ece6a;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#battery {
-  color: #15161e;
-  background: #ff79c6;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#network {
-  color: #15161e;
-  background: #f1fa8c;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#tray {
-  color: #15161e;
-  background: #414868;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#pulseaudio {
-  color: #15161e;
-  background: #c0caf5;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
-}
-
-#custom-notification {
-  color: #15161e;
-  background: #6272a4;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 2px 10px;
+  margin: 1px 5px;
 }
 
 #custom-menu {
-  font-size: 18px;
-  background-color: #2e3440;
-  border-radius: 15px;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding: 0px 5px;
+  font-size: 17px;
+  background-color: @color0;
+  border-radius: 25px;
+  padding-right: 3px;
+  margin: 1px 5px;
 }
 
 #custom-spotify {
-  color: #a6e3a1;
   padding-left: 15px;
   padding-right: 5px;
+  border-radius: 15px;
+  background-color: @color9;
+  margin: 1px 5px;
+}
+
+#cpu {
+  background-color: @color4;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#memory {
+  background-color: @color4;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#disk {
+  background-color: @background;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#battery {
+  background-color: @color9;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#pulseaudio {
+  background-color: @color5;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#clock {
+  background-color: @color5;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#network {
+  background-color: @background;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#tray {
+  background-color: @color9;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#notification {
+  background-color: @color11;
+  border-radius: 15px;
+  padding: 1px 10px;
+  margin: 1px 5px;
+}
+
+#custom-power {
+  border-radius: 15px;
+  background-color: @color4;
+  padding: 1px 8px;
+  padding-right: 2px;
+  margin: 1px 5px;
 }
 
 #custom-vpn.disconnected {
   color: #cc0000;
+  margin: 1px 5px;
 }
 #custom-vpn.connected {
   color: #00ff00;
+  margin: 1px 5px;
 }
