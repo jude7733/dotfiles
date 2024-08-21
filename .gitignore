@@ -57,6 +57,10 @@
 !.config/wal/templates/*
 !.config/safeeyes
 !.config/safeeyes/*
+!.config/spicetify
+!.config/spicetify/*
+!.config/spicetify/Themes/wal
+!.config/spicetify/Themes/wal/*
 !.config/safeeyes/style/*
 !.config/xsettingsd
 !.config/xsettingsd/*
@@ -70,6 +74,8 @@
 !.config/xfce4/xfconf/xfce-perchannel-xml/*
 !.config/gtk-3.0
 !.config/gtk-3.0/*
+!.config/gtk-4.0
+!.config/gtk-4.0/*
 !.config/xarchiver
 !.config/xarchiver/*
 !.config/mimeapps.list
