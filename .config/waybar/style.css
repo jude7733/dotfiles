@@ -16,7 +16,7 @@
 
 window#waybar {
   padding: 0 5px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /* -----------------------------------------------------
@@ -53,13 +53,15 @@ window#waybar {
  * Tooltips
  * ----------------------------------------------------- */
 tooltip {
-  background: #1a1b26;
-  border: 1px solid #7aa2f7;
-  border-radius: 10px;
+  background: @background;
+  border: 2px solid @color9;
+  border-radius: 7.5px;
+  color: @foreground;
+  padding: 5px;
 }
 
 tooltip label {
-  color: #c0caf5;
+  color: @color13;
 }
 
 /* -----------------------------------------------------
@@ -68,8 +70,8 @@ tooltip label {
 #window {
   background-color: @color8;
   border-radius: 15px;
-  margin: 4px;
-  padding: 2px 10px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 window#waybar.empty #window {
@@ -95,82 +97,80 @@ window#waybar.empty #window {
 }
 
 #custom-spotify {
-  padding-left: 15px;
-  padding-right: 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
   border-radius: 15px;
-  background-color: @color9;
-  margin: 1px 5px;
+  background-color: @color4;
 }
 
 #cpu {
-  background-color: @color4;
+  background-color: @color3;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #memory {
   background-color: @color4;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #disk {
   background-color: @background;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #battery {
   background-color: @color9;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #pulseaudio {
   background-color: @color5;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #clock {
-  background-color: @color5;
+  background-color: @color6;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #network {
   background-color: @background;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #tray {
-  background-color: @color9;
+  background-color: @color10;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
-#notification {
-  background-color: @color11;
+#custom-notification {
+  background-color: @color12;
   border-radius: 15px;
-  padding: 1px 10px;
-  margin: 1px 5px;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #custom-power {
   border-radius: 15px;
-  background-color: @color4;
-  padding: 1px 8px;
-  padding-right: 2px;
-  margin: 1px 5px;
+  background-color: @color1;
+  padding: 2px 8px;
+  margin: 4px 3px;
 }
 
 #custom-vpn.disconnected {

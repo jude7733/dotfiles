@@ -106,10 +106,9 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
-alias v="nvim"
+alias v="kitty @ set-spacing padding=0 && nvim"
+alias nvim="kitty @ set-spacing padding=0 && nvim"
+alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq)'
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

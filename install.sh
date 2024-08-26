@@ -3,7 +3,6 @@ set -e
 set -x
 
 sudo pacman -Syu
-# add nerdfonts for neovim and configure kitty
 
 # install yay
 sudo pacman -S --needed base-devel git
@@ -13,10 +12,12 @@ makepkg -si
 cd ~
 rm -rf yay
 
+# font
+yay -S ttf-maple
+
 yay -S bibata-cursor-theme-bin
 sudo pacman -S zsh cmake wireplumber xarchiver lxappearance nwg-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler
-yay -S materia-gtk-theme
-yay -S safeeyes
+yay -S materia-gtk-theme spicetify-cli safeeyes
 
 # kde-connect
 sudo pacman -S kdeconnect
@@ -31,7 +32,7 @@ sudo pacman -S cliphist
 sudo pacman -S polkit-kde-agent
 
 # hyprland plugins and packages
-sudo pacman -S cpio meson hyprpaper waybar hypridle xdg-portal-desktop-hyprland
+sudo pacman -S cpio meson swww waypaper waybar hypridle xdg-portal-desktop-hyprland
 yay -S hyprshot hyprlock wlogout pywal-16-colors 
 
 # nvim

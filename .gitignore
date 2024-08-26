@@ -76,6 +76,10 @@
 !.config/gtk-3.0/*
 !.config/gtk-4.0
 !.config/gtk-4.0/*
+!.config/qt6ct
+!.config/qt6ct/*
+!.config/qt5ct
+!.config/qt5ct/*
 !.config/xarchiver
 !.config/xarchiver/*
 !.config/mimeapps.list
