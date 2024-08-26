@@ -15,6 +15,9 @@ To install my dotfiles, follow these steps:
     ./install.sh
    ```
 
+## Screenshots
+<img src="./screenshots/home.png" alt="Home" width="100%">
+
 ## Includes
 
 - [Alacritty](https://github.com/alacritty/alacritty)

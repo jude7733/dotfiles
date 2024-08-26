@@ -5,6 +5,8 @@
 .bash_local
 .bash_logout
 !.profile
+!screenshots
+!screenshots/*
 
 # Zsh
 !.zshrc
