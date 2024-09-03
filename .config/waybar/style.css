@@ -16,7 +16,7 @@
 
 window#waybar {
   padding: 0 5px;
-  background: rgba(0, 0, 0, 0.3);
+  background: alpha(@background, 0.3);
 }
 
 /* -----------------------------------------------------
@@ -68,7 +68,7 @@ tooltip label {
  * Window
  * ----------------------------------------------------- */
 #window {
-  background-color: @color8;
+  background: alpha(@color8, 0.8);
   border-radius: 15px;
   padding: 2px 8px;
   margin: 4px 3px;
@@ -89,11 +89,10 @@ window#waybar.empty #window {
 }
 
 #custom-menu {
-  font-size: 17px;
-  background-color: @color0;
+  font-size: 18px;
+  background: alpha(@color0, 0.6);
   border-radius: 25px;
-  padding-right: 3px;
-  margin: 1px 5px;
+  margin: 0 5px;
 }
 
 #custom-spotify {
@@ -160,17 +159,18 @@ window#waybar.empty #window {
 }
 
 #custom-notification {
-  background-color: @color12;
+  background-color: @color9;
   border-radius: 15px;
   padding: 2px 8px;
   margin: 4px 3px;
 }
 
 #custom-power {
+  font-size: 18px;
   border-radius: 15px;
-  background-color: @color1;
-  padding: 2px 8px;
-  margin: 4px 3px;
+  background-color: @color9;
+  padding: 1px 10px;
+  margin: 0 5px;
 }
 
 #custom-vpn.disconnected {

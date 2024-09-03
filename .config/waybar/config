@@ -5,16 +5,16 @@
 	"modules-left": [
     "custom/menu",
 		"hyprland/workspaces",
-    "custom/spotify"
+    "custom/spotify",
 	],
 	"modules-center": [
-  "hyprland/window"
+    "hyprland/window"
 	],
 	"modules-right": [
         "cpu",
 		    "memory",
         "battery",
-        "pulseaudio",
+       // "pulseaudio",
         "clock",
 	    	"tray",
         "custom/notification",
@@ -22,7 +22,7 @@
 	],
   "custom/menu": {
 		   "format": " 󰣇 ",
-       "on-click": "wofi",
+       "on-click": "wofi -c ~/.config/wofi/menu-config -s ~/.config/wofi/menu-style.css",
        "tooltip": false
   },
   "hyprland/workspaces": {
@@ -138,5 +138,5 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "on-click": "",
         "tooltip": false
-    }
+    },
 }
