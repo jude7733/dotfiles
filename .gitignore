@@ -38,6 +38,8 @@
 !.config/btop/themes
 !.config/btop/themes/*
 .config/btop/btop.log
+!.config/cava
+!.config/cava/*
 !.config/fastfetch
 !.config/fastfetch/*
 !.config/hypr
