@@ -110,7 +110,7 @@ alias v="kitty @ set-spacing padding=0 && nvim"
 alias nvim="kitty @ set-spacing padding=0 && nvim"
 alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq)'
-alias cavabg='kitty -c ~/.config/hypr/scripts/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
+alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
