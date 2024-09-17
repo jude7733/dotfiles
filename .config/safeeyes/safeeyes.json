@@ -64,7 +64,7 @@
                     }
                 ],
                 "show_long_time_in_tray": false,
-                "show_time_in_tray": false
+                "show_time_in_tray": true
             },
             "version": "0.0.3"
         },
@@ -100,10 +100,10 @@
             "version": "0.0.1"
         },
         {
-            "enabled": false,
+            "enabled": true,
             "id": "limitconsecutiveskipping",
             "settings": {
-                "number_of_allowed_skips_in_a_row": 2
+                "number_of_allowed_skips_in_a_row": 4.0
             },
             "version": "0.0.1"
         }
@@ -112,7 +112,7 @@
     "pre_break_warning_time": 10,
     "random_order": true,
     "rpc_port": 7200,
-    "short_break_duration": 15,
+    "short_break_duration": 10,
     "short_break_interval": 15,
     "short_breaks": [
         {
