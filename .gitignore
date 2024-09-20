@@ -85,5 +85,9 @@
 !.config/xarchiver
 !.config/xarchiver/*
 !.config/mimeapps.list
+
+!.mozilla
+!.mozilla/firefox
+!.mozilla/firefox/n7hbu5zz.default-release
 !.mozilla/firefox/n7hbu5zz.default-release/chrome
-!.mozilla/firefox/n7hbu5zz.default-release/chrome/userChrome.css
+!.mozilla/firefox/n7hbu5zz.default-release/chrome/*
