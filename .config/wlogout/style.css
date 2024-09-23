@@ -3,7 +3,7 @@
 window {
   font-size: 16pt;
   color: @foreground;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: alpha(@background, 0.5);
 }
 
 button {
@@ -26,7 +26,7 @@ button:focus {
 button:hover {
   background-size: 40%;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.4);
-  background-color: @color6;
+  background-color: @color14;
   color: transparent;
   transition:
     all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682),
