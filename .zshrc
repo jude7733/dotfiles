@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/jude/.zsh/completions:"* ]]; then export FPATH="/home/jude/.zsh/completions:$FPATH"; fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 #ENV
@@ -111,6 +113,11 @@ alias nvim="kitty @ set-spacing padding=0 && nvim"
 alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq)'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
+alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. "/home/jude/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit

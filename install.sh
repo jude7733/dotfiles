@@ -36,7 +36,9 @@ sudo pacman -S cpio meson swww waypaper waybar hypridle xdg-portal-desktop-hyprl
 yay -S hyprshot hyprlock wlogout pywal-16-colors 
 
 # nvim
-sudo pacman -S neovim ripgrep lazygit btop npm nodejs
+sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk 
+# deno
+curl -fsSL https://deno.land/install.sh | sh
 
 # enable packages
 # sudo pacman -S hyprwayland-scanner
@@ -51,3 +53,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
 git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+
+# set Syslinks
+# ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
+# ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
+
+# for projectors use
+# sudo pacman -S arandr

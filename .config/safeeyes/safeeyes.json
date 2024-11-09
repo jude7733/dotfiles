@@ -106,6 +106,25 @@
                 "number_of_allowed_skips_in_a_row": 4.0
             },
             "version": "0.0.1"
+        },
+        {
+            "enabled": false,
+            "id": "system-notifications",
+            "version": "0.2"
+        },
+        {
+            "enabled": true,
+            "id": "weather",
+            "settings": {
+                "api": "1a776627ed91547676acc87b47cbd359",
+                "location": "El\u016br, IN"
+            },
+            "version": "0.0.1"
+        },
+        {
+            "enabled": false,
+            "id": "zoom",
+            "version": "0.2"
         }
     ],
     "postpone_duration": 4,
