@@ -85,6 +85,10 @@
 !.config/xarchiver
 !.config/xarchiver/*
 !.config/mimeapps.list
+!.config/swaync
+!.config/swaync/*
+!.config/swaync/icons
+!.config/swaync/icons/*
 
 !.mozilla
 !.mozilla/firefox

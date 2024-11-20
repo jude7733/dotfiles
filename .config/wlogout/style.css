@@ -3,7 +3,7 @@
 window {
   font-size: 16pt;
   color: @foreground;
-  background-color: alpha(@background, 0.5);
+  background-color: alpha(@background, 0.4);
 }
 
 button {
