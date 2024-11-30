@@ -14,7 +14,10 @@
         "cpu",
 		    "memory",
         "battery",
-       // "pulseaudio",
+//        "backlight",
+ //       "bluetooth",
+ //       "network",
+        "pulseaudio",
         "clock",
 	    	"tray",
         "custom/notification",
@@ -50,6 +53,11 @@
 		"max-length": 60,
 		"separate-outputs": false
 	},
+ "backlight": {
+      "device": "intel_backlight",
+      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
 	"memory": {
 		"interval": 5,
 		"format": "   {}%"
@@ -127,6 +135,11 @@
         "tooltip": false,
         "on-click": "wlogout --protocol layer-shell"
     },
+ "backlight": {
+      "device": "intel_backlight",
+      "format": "<span color='#b4befe'>{icon}</span> {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
     "battery": {
         "states": {
             "warning": 30,
@@ -138,5 +151,20 @@
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "on-click": "",
         "tooltip": false
+    },
+ "bluetooth": {
+      "format": "<span color='#b4befe'></span> {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "tooltip-format": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+    },
+"network": {
+      "interface": "wlo1",
+      "format": "{ifname}",
+      "format-wifi": "<span color='#b4befe'> </span>{essid}",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
+      "tooltip": false,
     },
 }

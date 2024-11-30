@@ -54,6 +54,8 @@
 !.config/waybar
 !.config/waybar/*
 !.config/waybar/scripts/*
+!.config/waypaper
+!.config/waypaper/*
 !.config/wal
 !.config/wal/*
 !.config/wal/templates/*

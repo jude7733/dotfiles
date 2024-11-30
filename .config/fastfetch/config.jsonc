@@ -18,6 +18,10 @@
       "type": "custom"
     },
     {
+      "key": "│           │\u001b[11D{#34}󰌢 PC",
+      "type": "host"
+    },
+    {
       "key": "│           │\u001b[11D{#33}󰅐 uptime",
       "type": "uptime"
     },
@@ -30,11 +34,19 @@
       "type": "kernel"
     },
     {
-      "key": "│           │\u001b[11D{#35} memory",
+      "key": "│           │\u001b[11D{#36}󰻠 cpu",
+      "type": "cpu"
+    },
+    {
+      "key": "│           │\u001b[11D{#37}󰅦 gpu",
+      "type": "gpu"
+    },
+    {
+      "key": "│           │\u001b[11D{#38}󰑭 memory",
       "type": "memory"
     },
     {
-      "key": "│           │\u001b[11D{#36}󰩟 network",
+      "key": "│           │\u001b[11D{#34}󰩟 network",
       "type": "localip",
       "format": "{1} ({4})"
     },

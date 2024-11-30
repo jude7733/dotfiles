@@ -16,13 +16,13 @@ rm -rf yay
 yay -S ttf-maple
 
 yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh cmake wireplumber xarchiver lxappearance nwg-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler cava
-yay -S materia-gtk-theme spicetify-cli safeeyes
+sudo pacman -S zsh cmake wireplumber xarchiver lxappearance hyprpicker nwg-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
+yay -S materia-gtk-theme spicetify-cli safeeyes cava 
 
 # kde-connect
 sudo pacman -S kdeconnect
 
-# notification daemon 
+# notification daemon
 sudo pacman -S swaync
 
 # clipboard
@@ -32,11 +32,11 @@ sudo pacman -S cliphist
 sudo pacman -S polkit-kde-agent
 
 # hyprland plugins and packages
-sudo pacman -S cpio meson swww waypaper waybar hypridle xdg-portal-desktop-hyprland
-yay -S hyprshot hyprlock wlogout pywal-16-colors 
+sudo pacman -S cpio meson swww waybar hypridle tuned
+yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprshade
 
 # nvim
-sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk 
+sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
 # deno
 curl -fsSL https://deno.land/install.sh | sh
 
@@ -55,8 +55,9 @@ git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
 
 # set Syslinks
-# ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
-# ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
+ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
+ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 
-# for projectors use
-# sudo pacman -S arandr
+# laptop packages
+sudo pacman -S alsa-utils sof-firmware arandr
+yay -S nwg-displays 
