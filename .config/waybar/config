@@ -280,7 +280,7 @@
     "format-disconnected": ""
   },
   "temperature": {
-    "thermal-zone": 6,
+    "thermal-zone": 3,
     "critical-threshold": 80,
     "format-critical": " {temperatureC}°C",
     "format": " {temperatureC}°C"

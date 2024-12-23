@@ -16,7 +16,7 @@ rm -rf yay
 yay -S ttf-maple
 
 yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh cmake wireplumber xarchiver lxappearance hyprpicker nwg-look arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
+sudo pacman -S zsh bat cmake wireplumber xarchiver lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
 yay -S materia-gtk-theme spicetify-cli safeeyes cava 
 
 # kde-connect
@@ -37,6 +37,8 @@ yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprshade
 
 # nvim
 sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
+# sudo setcap cap_perfmon=+ep /usr/bin/btop
+
 # deno
 curl -fsSL https://deno.land/install.sh | sh
 
@@ -59,5 +61,5 @@ ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
 ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 
 # laptop packages
-sudo pacman -S alsa-utils sof-firmware arandr
-yay -S nwg-displays 
+sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw
+yay -S nwg-displays tlpui
