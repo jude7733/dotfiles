@@ -1,7 +1,7 @@
 {
-    "allow_postpone": true,
-    "long_break_duration": 316,
-    "long_break_interval": 45,
+    "allow_postpone": false,
+    "long_break_duration": 60,
+    "long_break_interval": 75,
     "long_breaks": [
         {
             "name": "Walk for a while"
@@ -16,7 +16,7 @@
     "persist_state": false,
     "plugins": [
         {
-            "enabled": false,
+            "enabled": true,
             "id": "donotdisturb",
             "settings": {
                 "skip_break_windows": "",
@@ -64,12 +64,12 @@
                     }
                 ],
                 "show_long_time_in_tray": false,
-                "show_time_in_tray": true
+                "show_time_in_tray": false
             },
             "version": "0.0.3"
         },
         {
-            "enabled": false,
+            "enabled": true,
             "id": "smartpause",
             "settings": {
                 "idle_time": 5,
@@ -87,7 +87,7 @@
             "version": "0.0.2"
         },
         {
-            "enabled": true,
+            "enabled": false,
             "id": "healthstats",
             "settings": {
                 "statistics_reset_cron": "0 0 * * *"
@@ -103,39 +103,20 @@
             "enabled": true,
             "id": "limitconsecutiveskipping",
             "settings": {
-                "number_of_allowed_skips_in_a_row": 4.0
+                "number_of_allowed_skips_in_a_row": 2
             },
             "version": "0.0.1"
-        },
-        {
-            "enabled": false,
-            "id": "system-notifications",
-            "version": "0.2"
-        },
-        {
-            "enabled": true,
-            "id": "weather",
-            "settings": {
-                "api": "1a776627ed91547676acc87b47cbd359",
-                "location": "El\u016br, IN"
-            },
-            "version": "0.0.1"
-        },
-        {
-            "enabled": false,
-            "id": "zoom",
-            "version": "0.2"
         }
     ],
-    "postpone_duration": 4,
+    "postpone_duration": 5,
     "pre_break_warning_time": 10,
     "random_order": true,
     "rpc_port": 7200,
-    "short_break_duration": 10,
+    "short_break_duration": 15,
     "short_break_interval": 15,
     "short_breaks": [
         {
-            "name": "Tightly close your eyes"
+            "name": "Gently close your eyes"
         },
         {
             "name": "Roll your eyes a few times to each side"

@@ -71,7 +71,7 @@ zstyle ':omz:update' frequency 13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode zsh-autopair autoupdate sudo command-not-found git-auto-fetch web-search)
+plugins=(git gh zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode zsh-autopair autoupdate sudo command-not-found git-auto-fetch web-search npm yarn archlinux pip python rust)
 
 source $ZSH/oh-my-zsh.sh
 
