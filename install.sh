@@ -17,7 +17,7 @@ yay -S ttf-maple
 
 yay -S bibata-cursor-theme-bin
 sudo pacman -S zsh bat cmake wireplumber xarchiver lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
-yay -S materia-gtk-theme spicetify-cli safeeyes cava 
+yay -S materia-gtk-theme spicetify-cli safeeyes cava kora-icon-theme
 
 # kde-connect
 sudo pacman -S kdeconnect
@@ -38,6 +38,9 @@ yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprshade
 # nvim
 sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
 # sudo setcap cap_perfmon=+ep /usr/bin/btop
+
+# USB automount
+sudo pacman -S udiskie
 
 # deno
 curl -fsSL https://deno.land/install.sh | sh
@@ -63,3 +66,10 @@ ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 # laptop packages
 sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw
 yay -S nwg-displays tlpui
+
+#Latex
+sudo pacman -S texlive-latex texstudio texlive-latexextra
+
+#React native
+sudo pacman -S jdk17-openjdk
+yay -S android-studio

@@ -1,6 +1,6 @@
 {
     "allow_postpone": false,
-    "long_break_duration": 60,
+    "long_break_duration": 240,
     "long_break_interval": 75,
     "long_breaks": [
         {

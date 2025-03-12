@@ -134,7 +134,7 @@
   },
   "memory": {
     "interval": 5,
-    "format": " {}%",
+    "format": " {used:0.1f}GB",
     "format-alt": "󰍛 {avail}GB",
   },
   "cpu": {
@@ -239,14 +239,15 @@
     "tooltip": false,
   },
   "battery": {
+    "interval": 10,
     "states": {
       "warning": 30,
       "critical": 15
     },
     // "full-at": 79,
-    "format": "{icon} {capacity}% 󱔆{power:4.1f}",
-    "format-charging": "󰂄 {capacity}%  󱟟 {cycles}",
-    "format-plugged": "󱘖 {capacity}%",
+    "format": "{icon} {capacity}% 󱔆{power:4.1f}W",
+    "format-charging": "󰂄 {capacity}%  󱟟 {cycles}  󱔆 {power:4.1f}W",
+    "format-plugged": "󱘖 {capacity}%  󱔆{power:4.1f}W",
     "format-icons": [
       "󰁺",
       "󰁻",

@@ -7,6 +7,10 @@ export BROWSER="firefox"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -114,6 +118,7 @@ alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq)'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
 alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
+alias watchclear="watchman watch-del-all && watchman shutdown-server"
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -121,3 +126,4 @@ alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/de
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
