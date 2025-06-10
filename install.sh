@@ -13,7 +13,7 @@ cd ~
 rm -rf yay
 
 # font
-yay -S ttf-maple
+yay -S maplemono-nf
 
 yay -S bibata-cursor-theme-bin
 sudo pacman -S zsh bat cmake wireplumber xarchiver lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
@@ -42,6 +42,9 @@ sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
 # USB automount
 sudo pacman -S udiskie
 
+# Zram
+sudo pacman -S zram-generator
+
 # deno
 curl -fsSL https://deno.land/install.sh | sh
 
@@ -50,6 +53,9 @@ curl -fsSL https://deno.land/install.sh | sh
 hyprpm update
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprexpo
+
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable Hyprspace
 
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -73,3 +79,9 @@ sudo pacman -S texlive-latex texstudio texlive-latexextra
 #React native
 sudo pacman -S jdk17-openjdk
 yay -S android-studio
+
+# Openvino
+yay -S openvino-git openvino-intel-npu-plugin-git openvino-intel-gpu-plugin-git
+
+# NPU
+yay -S intel-npu-driver-git intel-npu-compiler-git

@@ -2,15 +2,19 @@
 if [[ ":$FPATH:" != *":/home/jude/.zsh/completions:"* ]]; then export FPATH="/home/jude/.zsh/completions:$FPATH"; fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+export GODEBUG=cgocheck=0
 #ENV
 export BROWSER="firefox"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/"
+export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/:$HOME/learning/"
 export ANDROID_HOME=$HOME/Android/Sdk
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+export JAVA_HOME=/opt/android-studio/jbr
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+export IPEX_LLM_NPU_MTL=1
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -119,6 +123,7 @@ alias clean='sudo pacman -Rns $(pacman -Qdtq)'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
 alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
 alias watchclear="watchman watch-del-all && watchman shutdown-server"
+alias refresh="sudo reflector --verbose --sort rate -l 100 --save /etc/pacman.d/mirrorlist"
 
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -127,3 +132,33 @@ alias watchclear="watchman watch-del-all && watchman shutdown-server"
 autoload -Uz compinit
 compinit
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jude/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jude/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jude/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jude/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# pnpm
+export PNPM_HOME="/home/jude/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jude/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jude/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

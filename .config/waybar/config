@@ -166,17 +166,17 @@
     "spacing": 8
   },
   "pulseaudio": {
-    "format": "{icon} <b>{volume}</b>",
+    "format": "{icon} {volume}",
     "format-bluetooth": " {volume}",
     "format-bluetooth-muted": "󰝟 ",
     "tooltip": false,
-    "format-muted": "  ",
+    "format-muted": " ",
     "format-icons": {
       "default": [
-        "󰝟",
-        "",
-        "󰕾",
-        ""
+        "󰝟 ",
+        " ",
+        "󰕾 ",
+        " "
       ]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -246,7 +246,7 @@
     },
     // "full-at": 79,
     "format": "{icon} {capacity}% 󱔆{power:4.1f}W",
-    "format-charging": "󰂄 {capacity}%  󱟟 {cycles}  󱔆 {power:4.1f}W",
+    "format-charging": "󰂄{capacity}% 󱟟{cycles} 󱔆{power:4.1f}W",
     "format-plugged": "󱘖 {capacity}%  󱔆{power:4.1f}W",
     "format-icons": [
       "󰁺",
@@ -272,13 +272,14 @@
     "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
   },
   "network": {
-    "format-wifi": "󰒢 {essid}",
-    "format-alt": "󰒢 {bandwidthTotalBits}",
+    "format-wifi": "󰒢 {bandwidthTotalBits}",
+    "format-alt": "󰒢 {essid}",
     "on-click-right": "nm-connection-editor",
     //"on-click": "kitty nmtui",
     "format-ethernet": "󰈀 wired",
     "tooltip-format": "{essid} {signalStrength}%",
-    "format-disconnected": ""
+    "format-disconnected": "",
+    "interval": 5
   },
   "temperature": {
     "thermal-zone": 3,

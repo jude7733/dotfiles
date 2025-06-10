@@ -1,20 +1,17 @@
 @import "../../.cache/wal/colors-waybar.css";
+
 /* -----------------------------------------------------
  * General
  * ----------------------------------------------------- */
 * {
   font-size: 15px;
-  font-family:
-    Ubuntu Nerd Font,
-    JetBrainsMono,
-    Font Awesome,
-    sans-serif;
+  font-family: Maple Mono NF Light;
   font-weight: 400;
   color: @foreground;
 }
 
 window#waybar {
-  padding: 0 2px;
+  padding: 0 5px;
   background: alpha(@background, 0.4);
 }
 
@@ -84,28 +81,32 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 #custom-menu {
   font-size: 18px;
-  background: alpha(@color0, 0.6);
+  background: alpha(@color0, 0.5);
   border-radius: 25px;
 }
 
 #taskbar {
   border-radius: 15px;
 }
+
 #taskbar button.active {
   background-color: @color1;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
 }
+
 #taskbar button.maximized {
   background-color: @color11;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
 }
+
 #taskbar button:hover {
   background-color: @color12;
   border-radius: 15px;
   transition: all 0.3s ease-in-out;
 }
+
 #taskbar.empty {
   background: none;
 }
@@ -121,6 +122,7 @@ window#waybar.empty #window {
   border-radius: 15px;
   background-color: @color4;
 }
+
 #backlight-slider slider {
   min-height: 0px;
   min-width: 0px;
@@ -130,12 +132,14 @@ window#waybar.empty #window {
   box-shadow: none;
   color: @color1;
 }
+
 #backlight-slider trough {
   min-height: 8px;
   min-width: 50px;
   border-radius: 5px;
   background-color: @color9;
 }
+
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
@@ -147,11 +151,13 @@ window#waybar.empty #window {
   border-radius: 15px;
   padding: 0 8px;
 }
+
 #pulseaudio {
   background-color: @color5;
   border-radius: 15px;
   padding: 0 8px;
 }
+
 #pulseaudio-slider slider {
   min-height: 0px;
   min-width: 0px;
@@ -161,12 +167,14 @@ window#waybar.empty #window {
   box-shadow: none;
   color: @color1;
 }
+
 #pulseaudio-slider trough {
   min-height: 8px;
   min-width: 50px;
   border-radius: 5px;
   background-color: @color9;
 }
+
 #pulseaudio-slider highlight {
   min-width: 10px;
   border-radius: 5px;
@@ -182,6 +190,7 @@ window#waybar.empty #window {
 #mpris {
   padding: 0 8px;
 }
+
 #mpris:hover {
   background-color: @color1;
   border-radius: 15px;
@@ -189,49 +198,49 @@ window#waybar.empty #window {
 }
 
 #battery {
-  background-color: @color2;
+  background: alpha(@color2, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #temperature {
-  background-color: @color3;
+  background: alpha(@color3, 0.7);
   padding: 0 8px;
   border-radius: 15px;
 }
 
 #cpu {
-  background-color: @color4;
+  background: alpha(@color4, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #memory {
-  background-color: @color5;
+  background: alpha(@color5, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #disk {
-  background-color: @color5;
+  background: alpha(@color5, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #clock {
-  background-color: @color9;
+  background: alpha(@color6, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #tray {
-  background-color: @color10;
+  background: alpha(@color10, 0.7);
   border-radius: 15px;
   padding: 0 8px;
 }
 
 #custom-notification {
-  background-color: @color11;
+  background: alpha(@color11, 0.7);
   border-radius: 15px;
   padding: 0 8px;
   font-size: 18px;
@@ -247,6 +256,7 @@ window#waybar.empty #window {
 #custom-vpn.disconnected {
   color: @color11;
 }
+
 #custom-vpn.connected {
   color: @color12;
 }
