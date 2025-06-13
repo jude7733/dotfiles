@@ -44,6 +44,14 @@ sudo pacman -S udiskie
 
 # Zram
 sudo pacman -S zram-generator
+sudo tee /etc/systemd/zram-generator.conf >/dev/null <<EOF
+[zram0]
+zram-size = ram / 4
+EOF
+sudo systemctl daemon-reload
+sudo systemctl start /dev/zram0
+sudo zramctl
+sudo swapon --show
 
 # deno
 curl -fsSL https://deno.land/install.sh | sh
