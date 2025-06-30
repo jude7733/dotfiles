@@ -4,7 +4,7 @@ application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 application/yaml=vim.desktop;
 text/plain=vim.desktop;nvim.desktop;libreoffice-writer.desktop;
 application/json=nvim.desktop;
-image/png=org.xfce.ristretto.desktop;
+image/png=org.gnome.Shotwell-Viewer.desktop;org.xfce.ristretto.desktop;
 x-scheme-handler/http=firefox.desktop;zen.desktop;
 x-scheme-handler/https=firefox.desktop;zen.desktop;
 x-scheme-handler/chrome=firefox.desktop;zen.desktop;
@@ -15,12 +15,13 @@ application/x-extension-shtml=firefox.desktop;zen.desktop;
 application/xhtml+xml=firefox.desktop;zen.desktop;
 application/x-extension-xhtml=firefox.desktop;zen.desktop;
 application/x-extension-xht=firefox.desktop;zen.desktop;
-image/jpeg=org.xfce.ristretto.desktop;
+image/jpeg=org.gnome.Shotwell-Viewer.desktop;org.xfce.ristretto.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 text/vnd.trolltech.linguist=vim.desktop;
 application/x-tiled-tsx=nvim.desktop;
 image/svg+xml=org.xfce.ristretto.desktop;
 image/webp=firefox.desktop;
+application/x-ipynb+json=zen.desktop;
 
 [Default Applications]
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop

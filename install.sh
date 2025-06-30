@@ -17,7 +17,7 @@ yay -S maplemono-nf
 
 yay -S bibata-cursor-theme-bin
 sudo pacman -S zsh bat cmake wireplumber xarchiver lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
-yay -S materia-gtk-theme spicetify-cli safeeyes cava kora-icon-theme
+yay -S materia-gtk-theme spicetify-cli stretchly-bin cava kora-icon-theme
 
 # kde-connect
 sudo pacman -S kdeconnect
@@ -34,6 +34,9 @@ sudo pacman -S polkit-kde-agent
 # hyprland plugins and packages
 sudo pacman -S cpio meson swww waybar hypridle tuned
 yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprshade
+
+# OCR
+yay -S tesseract tesseract-data-eng
 
 # nvim
 sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
@@ -89,7 +92,7 @@ sudo pacman -S jdk17-openjdk
 yay -S android-studio
 
 # Openvino
-yay -S openvino-git openvino-intel-npu-plugin-git openvino-intel-gpu-plugin-git
+yay -S openvino openvino-intel-npu-plugin openvino-intel-gpu-plugin
 
 # NPU
-yay -S intel-npu-driver-git intel-npu-compiler-git
+yay -S intel-npu-driver intel-npu-compiler

@@ -1,6 +1,5 @@
-# Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/jude/.zsh/completions:"* ]]; then export FPATH="/home/jude/.zsh/completions:$FPATH"; fi
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export GODEBUG=cgocheck=0
 #ENV
@@ -63,9 +62,8 @@ alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' 
 alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
 alias watchclear="watchman watch-del-all && watchman shutdown-server"
 alias refresh="sudo reflector --verbose --sort rate -l 100 --save /etc/pacman.d/mirrorlist"
+alias pachist="grep -i installed /var/log/pacman.log | tail -n 15"
 
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . "/home/jude/.deno/env"
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
