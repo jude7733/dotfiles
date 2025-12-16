@@ -16,8 +16,14 @@ rm -rf yay
 yay -S maplemono-nf
 
 yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh bat cmake wireplumber xarchiver lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk thunar adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
-yay -S materia-gtk-theme spicetify-cli stretchly-bin cava kora-icon-theme
+sudo pacman -S zsh bat cmake wireplumber file-roller lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
+yay -S materia-gtk-theme spicetify-cli breaktimer-bin cava kora-icon-theme converseen batsignal gnome-calculator
+
+# Thunar and plugins
+yay -S thunar thunar-archive-plugin thunar-volman thunar-megasync-bin
+
+# Disk analyzer
+yay -S baobab
 
 # kde-connect
 sudo pacman -S kdeconnect
@@ -33,7 +39,7 @@ sudo pacman -S polkit-kde-agent
 
 # hyprland plugins and packages
 sudo pacman -S cpio meson swww waybar hypridle tuned
-yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprshade
+yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprsunset
 
 # OCR
 yay -S tesseract tesseract-data-eng
@@ -44,6 +50,12 @@ sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
 
 # USB automount
 sudo pacman -S udiskie
+
+# Docker
+yay -S docker lazydocker docker-compose
+
+# Postgesql
+yay -S postgresql pgadmin4
 
 # Zram
 sudo pacman -S zram-generator
@@ -84,10 +96,10 @@ ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw
 yay -S nwg-displays tlpui
 
-#Latex
+# Latex
 sudo pacman -S texlive-latex texstudio texlive-latexextra
 
-#React native
+# React native
 sudo pacman -S jdk17-openjdk
 yay -S android-studio
 
@@ -96,3 +108,20 @@ yay -S openvino openvino-intel-npu-plugin openvino-intel-gpu-plugin
 
 # NPU
 yay -S intel-npu-driver intel-npu-compiler
+
+# Proton vpn with networkmanager
+# go to https://account.protonvpn.com/downloads and download wireguard conf (edit allowed IP)
+yay -S wireguard-tools
+sudo nmcli connection import type wireguard file ~/Downloads/wg-JP-FREE-30.conf
+
+# OBS
+yay -S vpl-gpu-rt obs-studio
+
+# Formatting
+sudo pacman -S exfatprogs
+
+# Gaming
+# Enable multilib in /etc/pacman.conf
+sudo pacman -S wine wine-mono winetricks
+yay -S gamemode lib32-gamemode
+yay -S mangohud lib32-mangohud

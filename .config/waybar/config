@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "height": 20,
   "spacing": 4,
   "modules-left": [
@@ -10,7 +10,6 @@
     "group/backlight",
     "group/volume",
     "bluetooth",
-    "mpris",
     "wlr/taskbar"
   ],
   "modules-center": [
@@ -92,7 +91,7 @@
   },
   "hyprland/window": {
     "max-length": 60,
-    "separate-outputs": false,
+    "separate-outputs": true,
     "format": " <b>{}</b>",
   },
   "mpris": {
@@ -247,7 +246,7 @@
     // "full-at": 79,
     "format": "{icon} {capacity}% 󱔆{power:4.1f}W",
     "format-charging": "󰂄{capacity}% 󱟟{cycles} 󱔆{power:4.1f}W",
-    "format-plugged": "󱘖 {capacity}%  󱔆{power:4.1f}W",
+    "format-plugged": "󱘖 {capacity}% 󱔆{power:4.1f}W",
     "format-icons": [
       "󰁺",
       "󰁻",

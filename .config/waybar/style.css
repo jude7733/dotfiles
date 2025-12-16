@@ -12,7 +12,7 @@
 
 window#waybar {
   padding: 0 5px;
-  background: alpha(@background, 0.4);
+  background: alpha(@background, 0.6);
 }
 
 /* -----------------------------------------------------

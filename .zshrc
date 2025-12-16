@@ -3,7 +3,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export GODEBUG=cgocheck=0
 #ENV
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/:$HOME/learning/"
@@ -14,6 +14,7 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export IPEX_LLM_NPU_MTL=1
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -57,18 +58,20 @@ fi
 alias v="kitty @ set-spacing padding=0 && nvim"
 alias nvim="kitty @ set-spacing padding=0 && nvim"
 alias :q="exit"
-alias clean='sudo pacman -Rns $(pacman -Qdtq)'
+alias clean='sudo pacman -Rns $(pacman -Qdtq) && pnpm store prune'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
 alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
 alias watchclear="watchman watch-del-all && watchman shutdown-server"
 alias refresh="sudo reflector --verbose --sort rate -l 100 --save /etc/pacman.d/mirrorlist"
 alias pachist="grep -i installed /var/log/pacman.log | tail -n 15"
+alias weather="curl wttr.in/Kochi"
+alias docker="sudo docker"
+alias rstudio="rstudio --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 . "/home/jude/.deno/env"
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
 # pnpm
@@ -82,5 +85,7 @@ esac
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/jude/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jude/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/jude/.lmstudio/bin"
+# End of LM Studio CLI section
+
