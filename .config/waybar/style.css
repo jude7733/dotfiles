@@ -1,163 +1,168 @@
 @import "../../.cache/wal/colors-waybar.css";
 
-/* -----------------------------------------------------
- * General
- * ----------------------------------------------------- */
+/* ==========================================================
+ * WAYBAR — Grouped Island Design
+ * Pywal dynamic colors · Floating dark capsules · Accent text
+ * ========================================================== */
+
 * {
-  font-size: 15px;
-  font-family: Maple Mono NF Light;
+  font-size: 13px;
+  font-family: "Maple Mono NF Light";
   font-weight: 400;
-  color: @foreground;
+  color: shade(@foreground, 1.5);
+  min-height: 0;
+  border: none;
+  border-radius: 0;
 }
 
+/* ── Main bar ─────────────────────────────────────────────── */
 window#waybar {
-  padding: 0 5px;
-  background: alpha(@background, 0.6);
+  background: none;
+  padding: 0;
+  margin: 0 0 4px 0;
 }
 
-/* -----------------------------------------------------
- * Workspaces
- * ----------------------------------------------------- */
+/* ── Island base ──────────────────────────────────────────── */
+/* All groups/modules that should be "islands" share this */
+#custom-menu,
+#workspaces,
+.modules-center,
+.modules-right,
+#network,
+#backlight,
+#wireplumber,
+#pulseaudio,
+#bluetooth,
+#custom-tlp_profile,
+#taskbar,
+#window,
+#battery,
+#temperature,
+#cpu,
+#memory,
+#disk,
+#clock,
+#tray,
+#custom-vpn,
+#custom-notification,
+#custom-power {
+  /* inherit from group backgrounds */
+}
+
+/* ── Group islands (left, center, right containers) ─────── */
+.modules-left {
+  margin-left: 4px;
+}
+
+.modules-right {
+  margin-right: 4px;
+}
+
+/* ── Launcher button ──────────────────────────────────────── */
+#custom-menu {
+  font-size: 18px;
+  padding: 2px 12px;
+  margin-right: 4px;
+  background: @color0;
+  border-radius: 12px;
+  color: shade(@color11, 1.5);
+  border: 1px solid alpha(@color11, 0.3);
+  transition: all 0.3s ease;
+}
+
+#custom-menu:hover {
+  background: mix(@color5, @color0, 0.04);
+}
+
+/* ── Workspaces ───────────────────────────────────────────── */
 #workspaces {
-  margin: 0 3px;
-  padding: 0 3px;
-  border-radius: 15px;
-  font-style: normal;
+  background: @color0;
+  border-radius: 12px;
+  padding: 2px 4px;
+  margin-right: 4px;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  margin: 2px 3px;
-  border-radius: 15px;
-  background-color: @color2;
-  transition: all 0.3s ease-in-out;
+  padding: 0 8px;
+  margin: 0 1px;
+  border-radius: 8px;
+  background: transparent;
+  color: shade(@color15, 1.5);
+  font-weight: normal;
+  transition: all 0.3s ease;
 }
 
 #workspaces button.active {
-  background-color: @color1;
-  border-radius: 15px;
-  min-width: 40px;
-  transition: all 0.3s ease-in-out;
-  font-weight: bolder;
+  background: mix(@color11, @color0, 0.04);
+  color: shade(@color11, 1.5);
+  font-weight: bold;
+  border-bottom: 2px solid @color11;
+  border-radius: 8px 8px 6px 6px;
 }
 
 #workspaces button:hover {
-  background-color: @color4;
-  border-radius: 15px;
-  font-weight: bolder;
+  background: mix(@color3, @color0, 0.04);
+  color: shade(@foreground, 1.5);
 }
 
-/* -----------------------------------------------------
- * Tooltips
- * ----------------------------------------------------- */
-tooltip {
-  background: @background;
-  border: 2px solid @color9;
-  border-radius: 7.5px;
-  color: @foreground;
-  padding: 5px;
-}
-
-tooltip label {
-  color: @color13;
-}
-
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
-#window {
-  background: alpha(@color8, 0.5);
-  border-radius: 15px;
-  padding: 0 8px;
-  margin: 2px 3px;
-}
-
-window#waybar.empty #window {
-  background: none;
-}
-
-/* -----------------------------------------------------
- * information
- * ----------------------------------------------------- */
-#custom-menu {
-  font-size: 18px;
-  background: alpha(@color0, 0.5);
-  border-radius: 25px;
-}
-
-#taskbar {
-  border-radius: 15px;
-}
-
-#taskbar button.active {
-  background-color: @color1;
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
-}
-
-#taskbar button.maximized {
-  background-color: @color11;
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
-}
-
-#taskbar button:hover {
-  background-color: @color12;
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
-}
-
-#taskbar.empty {
-  background: none;
+/* ── System info island (left: network, backlight, volume, tlp, bluetooth) */
+#network,
+#backlight,
+#wireplumber,
+#bluetooth,
+#custom-tlp_profile {
+  background: @color0;
+  padding: 2px 10px;
+  color: shade(@foreground, 1.5);
+  transition: all 0.2s ease;
 }
 
 #network {
-  background-color: @color3;
-  border-radius: 15px;
-  padding: 0 8px;
+  border-radius: 12px 0 0 12px;
+  color: shade(@color11, 1.5);
 }
 
 #backlight {
-  padding: 0 8px;
-  border-radius: 15px;
-  background-color: @color4;
-}
-
-#backlight-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  color: @color1;
-}
-
-#backlight-slider trough {
-  min-height: 8px;
-  min-width: 50px;
-  border-radius: 5px;
-  background-color: @color9;
-}
-
-#backlight-slider highlight {
-  min-width: 10px;
-  border-radius: 5px;
-  background-color: @color3;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color11, 1.5);
 }
 
 #wireplumber {
-  background-color: @color5;
-  border-radius: 15px;
-  padding: 0 8px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color12, 1.5);
 }
 
-#pulseaudio {
-  background-color: @color5;
-  border-radius: 15px;
-  padding: 0 8px;
+#custom-tlp_profile {
+  font-size: 16px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color11, 1.5);
 }
 
+#bluetooth {
+  border-left: 1px solid alpha(@color15, 0.2);
+  border-radius: 0 12px 12px 0;
+  margin-right: 4px;
+  color: shade(@color9, 1.5);
+}
+
+#backlight-slider,
+#pulseaudio-slider {
+  background: @color0;
+  padding: 0 10px;
+}
+
+/* Network hover */
+#network:hover,
+#backlight:hover,
+#wireplumber:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#custom-tlp_profile:hover {
+  background: mix(@color9, @color0, 0.04);
+}
+
+/* ── Sliders ──────────────────────────────────────────────── */
+#backlight-slider slider,
 #pulseaudio-slider slider {
   min-height: 0px;
   min-width: 0px;
@@ -165,102 +170,223 @@ window#waybar.empty #window {
   background-image: none;
   border: none;
   box-shadow: none;
-  color: @color1;
 }
 
+#backlight-slider trough,
 #pulseaudio-slider trough {
-  min-height: 8px;
-  min-width: 50px;
-  border-radius: 5px;
-  background-color: @color9;
+  min-height: 6px;
+  min-width: 60px;
+  border-radius: 4px;
+  background-color: mix(@color15, @color0, 0.04);
+}
+
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 4px;
+  background-color: shade(@color11, 1.5);
 }
 
 #pulseaudio-slider highlight {
   min-width: 10px;
-  border-radius: 5px;
-  background-color: green;
+  border-radius: 4px;
+  background-color: shade(@color12, 1.5);
 }
 
-#bluetooth {
-  padding: 0 8px;
-  border-radius: 15px;
-  background-color: @color10;
+#pulseaudio {
+  background: @color0;
+  padding: 2px 10px;
+  color: shade(@foreground, 1.5);
 }
 
-#custom-tlp_profile {
-  font-size: 20px;
+/* ── Taskbar ──────────────────────────────────────────────── */
+#taskbar {
+  background: @color0;
+  border-radius: 12px;
+  margin-left: 4px;
+  padding: 0 4px;
 }
 
-#mpris {
-  padding: 0 8px;
+#taskbar button {
+  padding: 2px 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-#mpris:hover {
-  background-color: @color1;
-  border-radius: 15px;
-  transition: all 0.3s ease-in-out;
+#taskbar button.active {
+  background: mix(@color11, @color0, 0.04);
+}
+
+#taskbar button:hover {
+  background: mix(@color3, @color0, 0.04);
+}
+
+#taskbar.empty {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Window title (center island) ─────────────────────────── */
+#window {
+  background: @color0;
+  border-radius: 12px;
+  padding: 2px 16px;
+  color: shade(@color15, 1.5);
+  font-weight: normal;
+}
+
+window#waybar.empty #window {
+  background: none;
+  padding: 0;
+}
+
+/* ── Tooltips ─────────────────────────────────────────────── */
+tooltip {
+  background: @color0;
+  border: 1px solid alpha(@color15, 0.3);
+  border-radius: 10px;
+  color: shade(@foreground, 1.5);
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: shade(@foreground, 1.5);
+}
+
+/* ── Right island: hardware stats ─────────────────────────── */
+#battery,
+#temperature,
+#cpu,
+#memory {
+  background: @color0;
+  padding: 2px 10px;
+  color: shade(@foreground, 2);
+  transition: all 0.2s ease;
 }
 
 #battery {
-  background: alpha(@color2, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+  border-radius: 12px 0 0 12px;
+  color: shade(@color12, 1.5);
 }
 
 #temperature {
-  background: alpha(@color3, 0.7);
-  padding: 0 8px;
-  border-radius: 15px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color11, 1.5);
 }
 
 #cpu {
-  background: alpha(@color4, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color8, 1.5);
 }
 
 #memory {
-  background: alpha(@color5, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  border-radius: 0 12px 12px 0;
+  margin-right: 4px;
+  color: shade(@color13, 1.5);
 }
 
-#disk {
-  background: alpha(@color5, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+#battery:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover {
+  background: mix(@color2, @color0, 0.04);
 }
 
+/* Battery states */
+#battery.warning {
+  color: shade(@color11, 1.5);
+}
+
+#battery.critical {
+  color: shade(@color11, 1.5);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ── Clock island ─────────────────────────────────────────── */
 #clock {
-  background: alpha(@color6, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+  background: @color0;
+  border-radius: 12px;
+  padding: 2px 14px;
+  margin-right: 4px;
+  color: shade(@color15, 1.5);
+  font-weight: bold;
+}
+
+#clock:hover {
+  background: mix(@color4, @color0, 0.04);
+}
+
+/* ── Right action island: tray, vpn, notification, power ── */
+#tray,
+#custom-vpn,
+#custom-notification,
+#custom-power {
+  background: @color0;
+  padding: 2px 10px;
+  transition: all 0.2s ease;
 }
 
 #tray {
-  background: alpha(@color10, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
+  border-radius: 12px 0 0 12px;
 }
 
-#custom-notification {
-  background: alpha(@color11, 0.7);
-  border-radius: 15px;
-  padding: 0 8px;
-  font-size: 18px;
-}
-
-#custom-power {
-  font-size: 18px;
-  border-radius: 15px;
-  background-color: @color10;
-  padding: 1px 10px;
+#custom-vpn {
+  border-left: 1px solid alpha(@color15, 0.2);
 }
 
 #custom-vpn.disconnected {
-  color: @color11;
+  color: alpha(@color15, 0.4);
 }
 
 #custom-vpn.connected {
-  color: @color12;
+  color: shade(@color11, 1.5);
+}
+
+#custom-notification {
+  font-size: 16px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  color: shade(@color12, 1.5);
+}
+
+#custom-notification:hover {
+  background: mix(@color5, @color0, 0.04);
+}
+
+#custom-power {
+  font-size: 16px;
+  border-left: 1px solid alpha(@color15, 0.2);
+  border-radius: 0 12px 12px 0;
+  color: shade(@color11, 1.5);
+}
+
+#custom-power:hover {
+  background: mix(@color3, @color0, 0.04);
+  color: shade(@color11, 1.5);
+}
+
+/* ── Disk (if used) ───────────────────────────────────────── */
+#disk {
+  background: @color0;
+  border-radius: 12px;
+  padding: 2px 10px;
+  color: shade(@color13, 1.5);
+}
+
+/* ── MPRIS ─────────────────────────────────────────────────── */
+#mpris {
+  padding: 2px 10px;
+  color: shade(@color11, 1.5);
+}
+
+#mpris:hover {
+  background: mix(@color1, @color0, 0.04);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
