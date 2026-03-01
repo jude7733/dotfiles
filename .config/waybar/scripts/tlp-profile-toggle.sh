@@ -6,11 +6,19 @@ get_current() {
   tlpctl get 2>/dev/null
 }
 
+get_icon() {
+  case "$1" in
+  power-saver) echo " 󰾆 " ;;
+  balanced) echo " 󰾅 " ;;
+  performance) echo " 󰓅 " ;;
+  *) echo "" ;;
+  esac
+}
+
 if [ "$1" = "set" ]; then
   current=$(get_current)
   [ -z "$current" ] && exit 0
 
-  # find current index
   idx=-1
   for i in "${!profiles[@]}"; do
     if [ "${profiles[$i]}" = "$current" ]; then
@@ -25,6 +33,7 @@ if [ "$1" = "set" ]; then
 
   tlpctl set "$next"
 
+  # wait until the new profile is active
   for _ in {1..10}; do
     sleep 0.1
     new=$(get_current)
@@ -42,5 +51,7 @@ if [ -z "$current" ]; then
   exit 0
 fi
 
-icon=""
-echo "{\"text\":\"$icon $current\",\"tooltip\":\"$current (click to switch)\",\"alt\":\"$current\",\"class\":\"$current\"}"
+icon=$(get_icon "$current")
+text="$icon"
+
+echo "{\"text\":\"$text\",\"tooltip\":\"$current (click to switch)\",\"alt\":\"$current\",\"class\":\"$current\"}"

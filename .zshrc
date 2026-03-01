@@ -15,6 +15,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export IPEX_LLM_NPU_MTL=1
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+export ZSH_THEME_RANDOM_QUIET=true
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -31,21 +32,21 @@ zstyle ':omz:update' frequency 13
 
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git gh zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode zsh-autopair autoupdate sudo command-not-found git-auto-fetch npm archlinux pip python rust)
+plugins=(git gh zsh-autosuggestions zsh-syntax-highlighting zsh-interactive-cd vi-mode sudo command-not-found git-auto-fetch npm archlinux pip python uv themes rust web-search)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 #Fastfetch
-if [[ $(tty) == *"pts"* ]]; then
-    fastfetch
-else
-    echo
-    if [ -f /bin/hyprctl ]; then
-        echo "Start Hyprland with command Hyprland"
-    fi
-fi
+# if [[ $(tty) == *"pts"* ]]; then
+#     fastfetch
+# else
+#     echo
+#     if [ -f /bin/hyprctl ]; then
+#         echo "Start Hyprland with command Hyprland"
+#     fi
+# fi
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -67,6 +68,9 @@ alias pachist="grep -i installed /var/log/pacman.log | tail -n 15"
 alias weather="curl wttr.in/Kochi"
 alias docker="sudo docker"
 alias rstudio="rstudio --enable-features=UseOzonePlatform --ozone-platform=wayland"
+alias killport='f() { lsof -ti :$1 | xargs kill; }; f'
+
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 . "/home/jude/.deno/env"
 # Initialize zsh completions (added by deno install script)
@@ -89,3 +93,7 @@ if [ -f '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ju
 export PATH="$PATH:/home/jude/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

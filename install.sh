@@ -16,7 +16,7 @@ rm -rf yay
 yay -S maplemono-nf
 
 yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh bat cmake wireplumber file-roller lxappearance hyprpicker nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
+sudo pacman -S zsh bat cmake wireplumber file-roller lxappearance hyprpicker hyprland-guiutils nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
 yay -S materia-gtk-theme spicetify-cli breaktimer-bin cava kora-icon-theme converseen batsignal gnome-calculator
 
 # Thunar and plugins
@@ -93,8 +93,9 @@ ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
 ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 
 # laptop packages
-sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw
+sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw tlp-pd
 yay -S nwg-displays tlpui
+yay -S linux-wifi-hotspot
 
 # Latex
 sudo pacman -S texlive-latex texstudio texlive-latexextra
@@ -125,3 +126,5 @@ sudo pacman -S exfatprogs
 sudo pacman -S wine wine-mono winetricks
 yay -S gamemode lib32-gamemode
 yay -S mangohud lib32-mangohud
+
+yay -S easyeffect python-autoeq

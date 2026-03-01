@@ -187,6 +187,10 @@ window#waybar.empty #window {
   background-color: @color10;
 }
 
+#custom-tlp_profile {
+  font-size: 20px;
+}
+
 #mpris {
   padding: 0 8px;
 }
