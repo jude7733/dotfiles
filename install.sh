@@ -25,6 +25,9 @@ yay -S thunar thunar-archive-plugin thunar-volman thunar-megasync-bin
 # Disk analyzer
 yay -S baobab
 
+# yazi
+yay -S yazi 7zip fzf
+
 # kde-connect
 sudo pacman -S kdeconnect
 
