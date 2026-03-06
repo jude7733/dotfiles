@@ -1,3 +1,4 @@
+source ~/.zsh/zsh-defer/zsh-defer.plugin.zsh
 if [[ ":$FPATH:" != *":/home/jude/.zsh/completions:"* ]]; then export FPATH="/home/jude/.zsh/completions:$FPATH"; fi
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -6,20 +7,32 @@ export GODEBUG=cgocheck=0
 export BROWSER="zen-browser"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export CDPATH=".:$HOME:$HOME/.config/:$HOME/coding/:$HOME/learning/"
-export ANDROID_HOME=$HOME/Android/Sdk
-export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
-export JAVA_HOME=/opt/android-studio/jbr
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+cdpath=(
+.
+$HOME
+$HOME/.config
+$HOME/coding
+$HOME/learning
+)
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/28.1.13356709"
+export JAVA_HOME="/opt/android-studio/jbr"
+
+path+=(
+$ANDROID_HOME/emulator
+$ANDROID_HOME/platform-tools
+)
+
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export IPEX_LLM_NPU_MTL=1
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 export ZSH_THEME_RANDOM_QUIET=true
+export DISABLE_MAGIC_FUNCTIONS=true
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-precmd() {print ""}
 
 ZSH_THEME="random"
 
@@ -32,9 +45,18 @@ zstyle ':omz:update' frequency 13
 
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git gh zsh-autosuggestions zsh-syntax-highlighting zsh-interactive-cd vi-mode sudo command-not-found git-auto-fetch npm archlinux pip python uv themes rust web-search)
+plugins=(git sudo vi-mode)
+# unused plugins: gh command-not-found npm archlinux pip python uv rust
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 source $ZSH/oh-my-zsh.sh
+
+zsh-defer source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zsh-defer source $ZSH/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+zsh-defer source $ZSH/plugins/git-auto-fetch/git-auto-fetch.plugin.zsh
+zsh-defer source $ZSH/plugins/web-search/web-search.plugin.zsh
 
 # User configuration
 
@@ -51,8 +73,6 @@ source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
- else
-   export EDITOR='nvim'
  fi
 
 # For a full list of active aliases, run `alias`.
@@ -72,11 +92,8 @@ alias killport='f() { lsof -ti :$1 | xargs kill; }; f'
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
-. "/home/jude/.deno/env"
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
-
+# . "/home/jude/.deno/env"
+# # Initialize zsh completions (added by deno install script)
 
 # pnpm
 export PNPM_HOME="/home/jude/.local/share/pnpm"
@@ -86,14 +103,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jude/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/jude/.lmstudio/bin"
 # End of LM Studio CLI section
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+zsh-defer eval "$(zoxide init zsh)"
