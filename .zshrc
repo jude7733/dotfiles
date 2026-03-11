@@ -27,7 +27,6 @@ $ANDROID_HOME/platform-tools
 
 export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 export IPEX_LLM_NPU_MTL=1
-export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
 export ZSH_THEME_RANDOM_QUIET=true
 export DISABLE_MAGIC_FUNCTIONS=true
 
@@ -45,8 +44,8 @@ zstyle ':omz:update' frequency 13
 
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git sudo vi-mode)
-# unused plugins: gh command-not-found npm archlinux pip python uv rust
+plugins=(git sudo vi-mode archlinux)
+# unused plugins: gh command-not-found npm pip python uv rust
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -73,11 +72,12 @@ zsh-defer source $ZSH/plugins/web-search/web-search.plugin.zsh
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
+  else
+   export EDITOR='nvim'
  fi
 
 # For a full list of active aliases, run `alias`.
-alias v="kitty @ set-spacing padding=0 && nvim"
-alias nvim="kitty @ set-spacing padding=0 && nvim"
+alias v="kitty @ set-spacing padding=0; nvim"
 alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq) && pnpm store prune'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
@@ -86,7 +86,6 @@ alias watchclear="watchman watch-del-all && watchman shutdown-server"
 alias refresh="sudo reflector --verbose --sort rate -l 100 --save /etc/pacman.d/mirrorlist"
 alias pachist="grep -i installed /var/log/pacman.log | tail -n 15"
 alias weather="curl wttr.in/Kochi"
-alias docker="sudo docker"
 alias rstudio="rstudio --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias killport='f() { lsof -ti :$1 | xargs kill; }; f'
 

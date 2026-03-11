@@ -22,9 +22,9 @@
     "modules": [
       "network",
       "backlight",
-      "backlight/slider",
+     //"backlight/slider",
       "wireplumber",
-      "pulseaudio/slider",
+     //"pulseaudio/slider",
       "custom/tlp_profile",
       "bluetooth"
     ]

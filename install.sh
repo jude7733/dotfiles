@@ -55,7 +55,7 @@ sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
 sudo pacman -S udiskie
 
 # Docker
-yay -S docker lazydocker docker-compose
+yay -S docker lazydocker docker-compose docker-buildx
 
 # Postgesql
 yay -S postgresql pgadmin4
