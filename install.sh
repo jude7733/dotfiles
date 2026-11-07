@@ -2,141 +2,168 @@
 set -e
 set -x
 
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
-# install yay
-sudo pacman -S --needed base-devel git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ~
-rm -rf yay
+# install yay if not already installed
+if ! command -v yay &>/dev/null; then
+  sudo pacman -S --needed --noconfirm base-devel git
+  _yay_dir=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git "$_yay_dir"
+  (cd "$_yay_dir" && makepkg -si --noconfirm)
+  rm -rf "$_yay_dir"
+fi
 
 # font
-yay -S maplemono-nf
+yay -S --needed maplemono-nf
 
-yay -S bibata-cursor-theme-bin
-sudo pacman -S zsh bat cmake wireplumber file-roller lxappearance hyprpicker hyprland-guiutils nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
-yay -S materia-gtk-theme spicetify-cli breaktimer-bin cava kora-icon-theme converseen batsignal gnome-calculator
+yay -S --needed bibata-cursor-theme-bin
+sudo pacman -S --needed zsh bat cmake wireplumber file-roller lxappearance hyprpicker hyprland-guiutils nwg-look brightnessctl arc-gtk-theme adapta-gtk-theme breeze-gtk adwaita-icon-theme arc-icon-theme ristretto pavucontrol zathura zathura-pdf-poppler nwg-hello
+yay -S --needed materia-gtk-theme spicetify-cli breaktimer-bin cava kora-icon-theme converseen batsignal gnome-calculator
 
 # Thunar and plugins
-yay -S thunar thunar-archive-plugin thunar-volman thunar-megasync-bin gvfs gvfs-mtp
+sudo pacman -S --needed thunar thunar-archive-plugin thunar-volman gvfs gvfs-mtp
+yay -S --needed thunar-megasync-bin
 
 # Disk analyzer
-yay -S baobab
+sudo pacman -S --needed baobab
 
 # yazi
-yay -S yazi 7zip fzf
+sudo pacman -S --needed yazi 7zip fzf
 
 # kde-connect
-sudo pacman -S kdeconnect
+sudo pacman -S --needed kdeconnect
 
 # notification daemon
-sudo pacman -S swaync
+sudo pacman -S --needed swaync
 
 # clipboard
-sudo pacman -S cliphist
+sudo pacman -S --needed cliphist
 
 # authentication agent
-sudo pacman -S polkit-kde-agent
+sudo pacman -S --needed hyprpolkitagent
 
 # hyprland plugins and packages
-sudo pacman -S cpio meson swww waybar hypridle tuned
-yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprsunset
+sudo pacman -S --needed cpio meson awww waybar hypridle tuned
+yay -S --needed hyprshot hyprlock wlogout python-pywal16 waypaper hyprsunset
 
 # OCR
-yay -S tesseract tesseract-data-eng
+sudo pacman -S --needed tesseract tesseract-data-eng
 
 # Players
-yay -S strawberry mpv
+sudo pacman -S --needed mpv
+yay -S --needed strawberry
 
-# nvim
-sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
+# nvim & dev
+sudo pacman -S --needed neovim ripgrep lazygit btop npm nodejs webkit2gtk fnm
 # sudo setcap cap_perfmon=+ep /usr/bin/btop
+if command -v fnm &>/dev/null; then
+  fnm install 22 || true
+  fnm default 22 || true
+fi
 
 # USB automount
-sudo pacman -S udiskie
+sudo pacman -S --needed udiskie
 
 # Docker
-yay -S docker lazydocker docker-compose docker-buildx
+sudo pacman -S --needed docker docker-compose docker-buildx
+yay -S --needed lazydocker
 
-# Postgesql
-yay -S postgresql pgadmin4
+# Postgresql
+sudo pacman -S --needed postgresql
+yay -S --needed pgadmin4
 
 # Zram
-sudo pacman -S zram-generator
-sudo tee /etc/systemd/zram-generator.conf >/dev/null <<EOF
+sudo pacman -S --needed zram-generator
+if [ ! -f /etc/systemd/zram-generator.conf ]; then
+  sudo tee /etc/systemd/zram-generator.conf >/dev/null <<EOF
 [zram0]
 zram-size = ram / 4
 EOF
-sudo systemctl daemon-reload
-sudo systemctl start /dev/zram0
-sudo zramctl
-sudo swapon --show
+  sudo systemctl daemon-reload
+  sudo systemctl start /dev/zram0
+fi
 
 # deno
-curl -fsSL https://deno.land/install.sh | sh
+if ! command -v deno &>/dev/null; then
+  curl -fsSL https://deno.land/install.sh | sh
+fi
 
-# enable packages
-# sudo pacman -S hyprwayland-scanner
-hyprpm update
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm enable hyprexpo
+# enable hyprpm plugins
+hyprpm update || true
+hyprpm add https://github.com/hyprwm/hyprland-plugins 2>/dev/null || true
+hyprpm enable hyprexpo || true
 
-hyprpm add https://github.com/KZDKM/Hyprspace
-hyprpm enable Hyprspace
+hyprpm add https://github.com/KZDKM/Hyprspace 2>/dev/null || true
+hyprpm enable Hyprspace || true
 
-# zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
-git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair
-git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
-git clone https://github.com/romkatv/zsh-defer ~/.zsh/zsh-defer
+# zsh & oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""
+fi
 
-# set Syslinks
+clone_if_missing() {
+  local repo="$1"
+  local dest="$2"
+  if [ ! -d "$dest" ]; then
+    git clone --depth=1 "$repo" "$dest"
+  fi
+}
+
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+clone_if_missing https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+clone_if_missing https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+clone_if_missing https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "$ZSH_CUSTOM/plugins/autoupdate"
+clone_if_missing https://github.com/hlissner/zsh-autopair "$ZSH_CUSTOM/plugins/zsh-autopair"
+clone_if_missing https://github.com/jeffreytse/zsh-vi-mode "$ZSH_CUSTOM/plugins/zsh-vi-mode"
+clone_if_missing https://github.com/romkatv/zsh-defer "$HOME/.zsh/zsh-defer"
+
+# set Symlinks
+mkdir -p ~/.config/zathura ~/.config/btop/themes
 ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
 ln -sf ~/.cache/wal/colors-btop.theme ~/.config/btop/themes/colors-btop.theme
 
 # laptop packages
-sudo pacman -S alsa-utils sof-firmware arandr tlp tlp-rdw tlp-pd
-yay -S nwg-displays tlpui
-yay -S linux-wifi-hotspot
+sudo pacman -S --needed alsa-utils sof-firmware arandr tlp tlp-rdw tlp-pd
+yay -S --needed nwg-displays tlpui
+yay -S --needed linux-wifi-hotspot
 
 # Latex
-sudo pacman -S texlive-latex texstudio texlive-latexextra
+sudo pacman -S --needed texlive-latex texstudio texlive-latexextra
 
 # React native
-sudo pacman -S jdk17-openjdk
-yay -S android-studio
+sudo pacman -S --needed jdk17-openjdk
+yay -S --needed android-studio
 
 # Openvino
-yay -S openvino openvino-intel-npu-plugin openvino-intel-gpu-plugin
+yay -S --needed openvino openvino-intel-npu-plugin openvino-intel-gpu-plugin
 
 # NPU
-yay -S intel-npu-driver intel-npu-compiler
+yay -S --needed intel-npu-driver intel-npu-compiler
 
 # Proton vpn with networkmanager
-# go to https://account.protonvpn.com/downloads and download wireguard conf (edit allowed IP)
-yay -S wireguard-tools
-sudo nmcli connection import type wireguard file ~/Downloads/wg-JP-FREE-30.conf
+yay -S --needed wireguard-tools
+if [ -f "$HOME/Downloads/wg-JP-FREE-30.conf" ]; then
+  sudo nmcli connection import type wireguard file "$HOME/Downloads/wg-JP-FREE-30.conf" || true
+else
+  echo "Wireguard config ~/Downloads/wg-JP-FREE-30.conf not found, skipping nmcli import."
+fi
 
 # OBS
-yay -S vpl-gpu-rt obs-studio
+sudo pacman -S --needed obs-studio
+yay -S --needed vpl-gpu-rt
 
 # Formatting
-sudo pacman -S exfatprogs
+sudo pacman -S --needed exfatprogs
 
 # Gaming
 # Enable multilib in /etc/pacman.conf
-sudo pacman -S wine wine-mono winetricks
-yay -S gamemode lib32-gamemode
-yay -S mangohud lib32-mangohud
+sudo pacman -S --needed wine wine-mono winetricks
+yay -S --needed gamemode lib32-gamemode
+yay -S --needed mangohud lib32-mangohud
 
-yay -S easyeffect python-autoeq
+# Audio & Tools
+sudo pacman -S --needed easyeffects dotnet-runtime dotnet-sdk video-trimmer
+yay -S --needed python-autoeq
 
-dotnet-runtime dotnet-sdk
-video-trimmer
-
-yay -S antigravity-cli cursor-bin openai-codex-bin antigravity-ide
+# Developer tools
+yay -S --needed antigravity-cli cursor-bin openai-codex-bin antigravity-ide

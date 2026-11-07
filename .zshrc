@@ -110,6 +110,10 @@ esac
 export PATH="$PATH:/home/jude/.lmstudio/bin"
 # End of LM Studio CLI section
 
-source /usr/share/nvm/init-nvm.sh
+# fnm (Fast Node Manager)
+if command -v fnm &>/dev/null; then
+  [ -n "$XDG_RUNTIME_DIR" ] && [ ! -d "$XDG_RUNTIME_DIR" ] && export XDG_RUNTIME_DIR="/tmp/user-$(id -u)" && mkdir -p "$XDG_RUNTIME_DIR"
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
 
 zsh-defer eval "$(zoxide init zsh)"
