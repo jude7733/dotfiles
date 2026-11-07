@@ -20,7 +20,7 @@ sudo pacman -S zsh bat cmake wireplumber file-roller lxappearance hyprpicker hyp
 yay -S materia-gtk-theme spicetify-cli breaktimer-bin cava kora-icon-theme converseen batsignal gnome-calculator
 
 # Thunar and plugins
-yay -S thunar thunar-archive-plugin thunar-volman thunar-megasync-bin
+yay -S thunar thunar-archive-plugin thunar-volman thunar-megasync-bin gvfs gvfs-mtp
 
 # Disk analyzer
 yay -S baobab
@@ -46,6 +46,9 @@ yay -S hyprshot hyprlock wlogout python-pywal16 waypaper hyprsunset
 
 # OCR
 yay -S tesseract tesseract-data-eng
+
+# Players
+yay -S strawberry mpv
 
 # nvim
 sudo pacman -S neovim ripgrep lazygit btop npm nodejs webkit2gtk
@@ -132,3 +135,8 @@ yay -S gamemode lib32-gamemode
 yay -S mangohud lib32-mangohud
 
 yay -S easyeffect python-autoeq
+
+dotnet-runtime dotnet-sdk
+video-trimmer
+
+yay -S antigravity-cli cursor-bin openai-codex-bin antigravity-ide

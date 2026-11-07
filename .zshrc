@@ -7,18 +7,20 @@ export GODEBUG=cgocheck=0
 export BROWSER="zen-browser"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export CLAUDE_STATUSLINE_NERDFONT=1
 
 cdpath=(
 .
 $HOME
-$HOME/.config
 $HOME/coding
+$HOME/.config
 $HOME/learning
 )
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 export NDK_HOME="$ANDROID_HOME/ndk/28.1.13356709"
-export JAVA_HOME="/opt/android-studio/jbr"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export PATH=$JAVA_HOME/bin:$PATH
 
 path+=(
 $ANDROID_HOME/emulator
@@ -44,7 +46,7 @@ zstyle ':omz:update' frequency 13
 
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git sudo vi-mode archlinux)
+plugins=(git sudo vi-mode archlinux docker docker-compose)
 # unused plugins: gh command-not-found npm pip python uv rust
 
 zstyle ':completion:*' use-cache on
@@ -82,12 +84,14 @@ alias :q="exit"
 alias clean='sudo pacman -Rns $(pacman -Qdtq) && pnpm store prune'
 alias cavabg='kitty -c ~/.config/kitty/kittybg.conf --detach --class='kitty-bg' ~/.config/hypr/scripts/cava.sh'
 alias findphone="echo 'Private IP address:' $(ip addr show $(ip route | awk '/default/ {print $5}') | awk '/inet / {print $2}' | cut -d/ -f1)"
-alias watchclear="watchman watch-del-all && watchman shutdown-server"
+# alias watchclear="watchman watch-del-all && watchman shutdown-server"
 alias refresh="sudo reflector --verbose --sort rate -l 100 --save /etc/pacman.d/mirrorlist"
 alias pachist="grep -i installed /var/log/pacman.log | tail -n 15"
 alias weather="curl wttr.in/Kochi"
 alias rstudio="rstudio --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias killport='f() { lsof -ti :$1 | xargs kill; }; f'
+alias whatismyip='echo -n "Public IP: "; curl -s https://api.ipify.org; echo'
+alias search="rg --smart-case --hidden --glob '!.git/'"
 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
@@ -95,7 +99,7 @@ alias killport='f() { lsof -ti :$1 | xargs kill; }; f'
 # # Initialize zsh completions (added by deno install script)
 
 # pnpm
-export PNPM_HOME="/home/jude/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -105,5 +109,7 @@ esac
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/jude/.lmstudio/bin"
 # End of LM Studio CLI section
+
+source /usr/share/nvm/init-nvm.sh
 
 zsh-defer eval "$(zoxide init zsh)"

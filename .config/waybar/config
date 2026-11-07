@@ -53,7 +53,7 @@
     "exec": "~/.config/waybar/scripts/tlp-profile-toggle.sh",
     "interval": "once",
     "signal": 8,
-    "on-click": "~/.config/waybar/scripts/tlp-profile-toggle.sh set; sleep 0.2; pkill -RTMIN+8 waybar"
+    "on-click": "~/.config/waybar/scripts/tlp-profile-toggle.sh set"
   },
   "wlr/taskbar": {
     "format": "{icon}",

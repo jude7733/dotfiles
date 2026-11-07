@@ -42,6 +42,7 @@ if [ "$1" = "set" ]; then
     fi
   done
 
+  pkill -RTMIN+8 waybar
   exit 0
 fi
 
@@ -55,3 +56,4 @@ icon=$(get_icon "$current")
 text="$icon"
 
 echo "{\"text\":\"$text\",\"tooltip\":\"$current (click to switch)\",\"alt\":\"$current\",\"class\":\"$current\"}"
+
