@@ -54,6 +54,8 @@
 !.config/waybar
 !.config/waybar/*
 !.config/waybar/scripts/*
+!.config/tlp
+!.config/tlp/*
 !.config/waypaper
 !.config/waypaper/*
 !.config/wal

@@ -72,7 +72,7 @@ yay -S --needed lazydocker
 sudo pacman -S --needed postgresql
 yay -S --needed pgadmin4
 
-# Zram
+# Zram & VM memory tuning
 sudo pacman -S --needed zram-generator
 if [ ! -f /etc/systemd/zram-generator.conf ]; then
   sudo tee /etc/systemd/zram-generator.conf >/dev/null <<EOF
@@ -81,6 +81,30 @@ zram-size = ram / 4
 EOF
   sudo systemctl daemon-reload
   sudo systemctl start /dev/zram0
+fi
+
+if [ ! -f /etc/sysctl.d/99-vm-zram.conf ]; then
+  sudo tee /etc/sysctl.d/99-vm-zram.conf >/dev/null <<EOF
+vm.swappiness = 180
+vm.watermark_boost_factor = 0
+vm.watermark_scale_factor = 125
+vm.page-cluster = 0
+EOF
+  sudo sysctl --system
+fi
+
+# System maintenance, cache & logs
+sudo pacman -S --needed pacman-contrib
+sudo systemctl enable --now paccache.timer
+
+sudo journalctl --vacuum-size=200M
+if [ ! -f /etc/systemd/journald.conf.d/00-journal-size.conf ]; then
+  sudo mkdir -p /etc/systemd/journald.conf.d
+  sudo tee /etc/systemd/journald.conf.d/00-journal-size.conf >/dev/null <<EOF
+[Journal]
+SystemMaxUse=200M
+EOF
+  sudo systemctl restart systemd-journald || true
 fi
 
 # deno
